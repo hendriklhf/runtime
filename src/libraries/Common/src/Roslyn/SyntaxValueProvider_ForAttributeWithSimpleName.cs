@@ -163,7 +163,9 @@ internal static partial class SyntaxValueProviderExtensions
 
             CSharpSyntaxHelper.Instance.AddAliases(compilationUnit, ref globalAliases, global: true);
 
-            return GlobalAliases.Create(globalAliases.AsSpan().ToImmutableArray());
+            var aliases = globalAliases.AsSpan().ToImmutableArray();
+            globalAliases.Dispose();
+            return GlobalAliases.Create(aliases);
         }
     }
 
@@ -227,6 +229,7 @@ internal static partial class SyntaxValueProviderExtensions
             attributeTargets.Dispose();
             results.Dispose();
             seenNames.Dispose();
+            localAliases.Dispose();
         }
 
         void processCompilationUnit(

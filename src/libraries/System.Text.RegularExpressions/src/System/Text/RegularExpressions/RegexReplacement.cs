@@ -90,6 +90,7 @@ namespace System.Text.RegularExpressions
             _strings = strings.AsSpan().ToArray();
             _rules = rules.AsSpan().ToArray();
 
+            strings.Dispose();
             rules.Dispose();
         }
 
