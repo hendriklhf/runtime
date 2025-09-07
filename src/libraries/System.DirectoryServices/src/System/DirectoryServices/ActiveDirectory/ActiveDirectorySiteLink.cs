@@ -19,7 +19,7 @@ namespace System.DirectoryServices.ActiveDirectory
         internal bool existing;
         internal readonly DirectoryEntry cachedEntry;
         private const int systemDefaultCost = 0;
-        private readonly TimeSpan _systemDefaultInterval = new TimeSpan(0, 15, 0);
+        private static readonly TimeSpan s_systemDefaultInterval = new TimeSpan(0, 15, 0);
         private const int appDefaultCost = 100;
         private const int appDefaultInterval = 180;
         private readonly ActiveDirectorySiteCollection _sites = new ActiveDirectorySiteCollection();
@@ -300,7 +300,7 @@ namespace System.DirectoryServices.ActiveDirectory
                     throw ExceptionHelper.GetExceptionFromCOMException(context, e);
                 }
 
-                return _systemDefaultInterval;
+                return s_systemDefaultInterval;
             }
             set
             {

@@ -28,10 +28,10 @@ namespace System.Security.AccessControl
         private readonly ResourceType _resourceType;
         private readonly ExceptionFromErrorCode? _exceptionFromErrorCode;
         private readonly object? _exceptionContext;
-        private readonly uint ProtectedDiscretionaryAcl = 0x80000000;
-        private readonly uint ProtectedSystemAcl = 0x40000000;
-        private readonly uint UnprotectedDiscretionaryAcl = 0x20000000;
-        private readonly uint UnprotectedSystemAcl = 0x10000000;
+        private const uint ProtectedDiscretionaryAcl = 0x80000000;
+        private const uint ProtectedSystemAcl = 0x40000000;
+        private const uint UnprotectedDiscretionaryAcl = 0x20000000;
+        private const uint UnprotectedSystemAcl = 0x10000000;
 
 
 

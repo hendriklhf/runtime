@@ -21,7 +21,7 @@ namespace System.Security.Cryptography
         {
             get
             {
-                CngKey key = _core.GetOrGenerateKey(KeySize, _dsnCng);
+                CngKey key = _core.GetOrGenerateKey(KeySize, s_dsnCng);
                 return key;
             }
 
@@ -52,6 +52,6 @@ namespace System.Security.Cryptography
         }
 
         private const string BCRYPT_DSA_ALGORITHM = "DSA";
-        private readonly CngAlgorithm _dsnCng = new CngAlgorithm(BCRYPT_DSA_ALGORITHM);
+        private static readonly CngAlgorithm s_dsnCng = new CngAlgorithm(BCRYPT_DSA_ALGORITHM);
     }
 }

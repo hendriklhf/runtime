@@ -29,7 +29,7 @@ namespace System.Net.ServerSentEvents
         private static ReadOnlySpan<byte> CRLF => "\r\n"u8;
 
         /// <summary>The maximum number of milliseconds representible by <see cref="System.TimeSpan"/>.</summary>
-        private readonly long TimeSpan_MaxValueMilliseconds = (long)TimeSpan.MaxValue.TotalMilliseconds;
+        private static readonly long TimeSpan_MaxValueMilliseconds = (long)TimeSpan.MaxValue.TotalMilliseconds;
 
         /// <summary>The default size of an ArrayPool buffer to rent.</summary>
         /// <remarks>Larger size used by default to minimize number of reads. Smaller size used in debug to stress growth/shifting logic.</remarks>

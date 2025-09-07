@@ -34,7 +34,7 @@ namespace System.Xml.Serialization
         private Hashtable? _typeEntries;
         private ArrayList? _referencesToWrite;
         private Hashtable? _objectsInUse;
-        private readonly string _aliasBase = "q";
+        private const string AliasBase = "q";
         private bool _soap12;
         private bool _escapeName = true;
 
@@ -515,7 +515,7 @@ namespace System.Xml.Serialization
                         writePrefixed = true;
                 }
 
-                _usedPrefixes = ListUsedPrefixes(_namespaces, _aliasBase);
+                _usedPrefixes = ListUsedPrefixes(_namespaces, AliasBase);
             }
             if (writePrefixed && prefix == null && ns != null && ns.Length > 0)
             {
@@ -1464,10 +1464,10 @@ namespace System.Xml.Serialization
         {
             if (_usedPrefixes == null)
             {
-                return _aliasBase + (++_tempNamespacePrefix);
+                return AliasBase + (++_tempNamespacePrefix);
             }
             while (_usedPrefixes.Contains(++_tempNamespacePrefix)) { }
-            return _aliasBase + _tempNamespacePrefix;
+            return AliasBase + _tempNamespacePrefix;
         }
 
         internal sealed class TypeEntry

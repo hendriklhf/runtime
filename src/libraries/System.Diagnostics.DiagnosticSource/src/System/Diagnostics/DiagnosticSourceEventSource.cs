@@ -189,7 +189,7 @@ namespace System.Diagnostics
 
         // Setting AspNetCoreHosting is like having this in the FilterAndPayloadSpecs string
         // It turns on basic hosting events.
-        private readonly string AspNetCoreHostingKeywordValue =
+        private const string AspNetCoreHostingKeywordValue =
             "Microsoft.AspNetCore/Microsoft.AspNetCore.Hosting.BeginRequest@Activity1Start:-" +
                 "httpContext.Request.Method;" +
                 "httpContext.Request.Host;" +
@@ -202,7 +202,7 @@ namespace System.Diagnostics
 
         // Setting EntityFrameworkCoreCommands is like having this in the FilterAndPayloadSpecs string
         // It turns on basic SQL commands.
-        private readonly string EntityFrameworkCoreCommandsKeywordValue =
+        private const string EntityFrameworkCoreCommandsKeywordValue =
             "Microsoft.EntityFrameworkCore/Microsoft.EntityFrameworkCore.BeforeExecuteCommand@Activity2Start:-" +
                 "Command.Connection.DataSource;" +
                 "Command.Connection.Database;" +
